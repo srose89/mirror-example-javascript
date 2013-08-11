@@ -90,7 +90,7 @@
 
     function getLatestLocation() {
 	    gapi.client.load('mirror', 'v1', function () {
-	    var request = gapi.client.mirror.locations.get({});
+	    var request = gapi.client.mirror.locations.get({ id : "latest" });
             request.execute(function (resp) {
 		            displayMessage("Response is: ", resp);
             });
