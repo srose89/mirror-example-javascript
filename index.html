@@ -89,12 +89,12 @@
     }
 
     function getLatestLocation() {
-	gapi.client.load('mirror', 'v1', function () {
+	    gapi.client.load('mirror', 'v1', function () {
 	    var request = gapi.client.mirror.locations.get({});
             request.execute(function (resp) {
-		        displayMessage("Response is: ", resp);
-            }
-    	}
+		            displayMessage("Response is: ", resp);
+            });
+        });
     }
 
 
@@ -152,7 +152,7 @@
       $("#get-location-submit").click(function(event) {
         event.preventDefault();
         getLatestLocation();
-      }
+      });
 
       $("#insert-picture-submit").click(function(event) {
         var attachmentUrl = $("#insert-picture-url").val();
