@@ -92,10 +92,11 @@
 	gapi.client.load('mirror', 'v1', function () {
 	    var request = gapi.client.mirror.locations.get({});
             request.execute(function (resp) {
-		displayMessage("Response is: ", resp);
+		        displayMessage("Response is: ", resp);
             }
-	}
+    	}
     }
+
 
     function insertTimelineItemWithAttachment(timelineItem, base64EncodedImage) {
       const boundary = '-------314159265358979323846';
@@ -148,6 +149,11 @@
         });
       });
 
+      $("#get-location-submit").click(function(event) {
+        event.preventDefault();
+        getLatestLocation();
+      }
+
       $("#insert-picture-submit").click(function(event) {
         var attachmentUrl = $("#insert-picture-url").val();
         event.preventDefault();
@@ -192,6 +198,10 @@
         <textarea id="insert-message">Hello World!</textarea><br/>
         <button class="btn" id="insert-message-submit">The above message</button>
       </form>
+
+      <form>
+        <button class="btn" id="get-location-submit">Get latest location</button>
+      <form>
 
       <!-- Commenting out until this works -->
       <form>
