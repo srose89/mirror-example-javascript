@@ -88,6 +88,15 @@
       });
     }
 
+    function getLatestLocation() {
+	gapi.client.load('mirror', 'v1', function () {
+	    var request = gapi.client.mirror.locations.get({});
+            request.execute(function (resp) {
+		displayMessage("Response is: ", resp);
+            }
+	}
+    }
+
     function insertTimelineItemWithAttachment(timelineItem, base64EncodedImage) {
       const boundary = '-------314159265358979323846';
       const delimiter = "\r\n--" + boundary + "\r\n";
